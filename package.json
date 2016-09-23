@@ -1,0 +1,11 @@
+{
+	"name": "sinapay_tool",
+	"version": "0.1",
+	"description": "sinapay tool",
+	"main": "src/main.js",
+	"scripts": {
+		"start": "electron src/main.js"
+	},
+	"author": "Zhiya Zang",
+	"license": "MIT"
+}
