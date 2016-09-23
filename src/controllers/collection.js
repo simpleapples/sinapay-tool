@@ -2,6 +2,7 @@
 
 const {BrowserWindow} = require('electron');
 const path = require('path');
+const CSSInjector = require('../injection/css')
 
 class CollectionController {
     constructor() {
@@ -23,6 +24,11 @@ class CollectionController {
                 nodeIntegration: false,
                 webSecurity: true
             }
+        });
+
+        this.collectionWindow.webContents.on('dom-ready', () => {
+            this.collectionWindow.webContents.insertCSS(CSSInjector.commonCSS);
+            this.collectionWindow.webContents.openDevTools();
         });
 
         this.loadView();
