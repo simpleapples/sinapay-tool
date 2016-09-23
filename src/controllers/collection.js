@@ -12,7 +12,9 @@ class CollectionController {
     createWindow() {
         this.collectionWindow = new BrowserWindow({
             title: '企业审核资料生成',
-            resizable: true,
+            width: 800,
+            height: 625,
+            resizable: false,
             center: true,
             show: false,
             frame: true,
