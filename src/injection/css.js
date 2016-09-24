@@ -53,4 +53,10 @@ CSSInjector.commonCSS = `
     }
 `;
 
+CSSInjector.macOSCSS = `
+    .container {
+        margin-top: 64px;
+    }
+`;
+
 module.exports = CSSInjector;

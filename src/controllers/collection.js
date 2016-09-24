@@ -30,6 +30,9 @@ class CollectionController {
 
         this.collectionWindow.webContents.on('dom-ready', () => {
             this.collectionWindow.webContents.insertCSS(CSSInjector.commonCSS);
+            if (process.platform === 'darwin') {
+                this.collectionWindow.webContents.insertCSS(CSSInjector.macOSCSS);
+            }
             this.collectionWindow.webContents.openDevTools();
         });
 
