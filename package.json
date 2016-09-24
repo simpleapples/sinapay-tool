@@ -1,6 +1,6 @@
 {
     "name": "sinapay_tool",
-    "version": "0.1",
+    "version": "0.0.1",
     "description": "sinapay tool",
     "main": "src/main.js",
     "scripts": {
@@ -10,10 +10,11 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/simpleapples/sinapay-tool.git";
+        "url": "https://github.com/simpleapples/sinapay-tool.git"
     },
     "dependencies": {
-        "electron": "^1.4.1"
+        "electron": "^1.4.1",
+        "adm-zip": "^0.4.7"
     },
     "devDependencies": {
         "eslint": "^3.6.0",

@@ -1,6 +1,7 @@
 'use strict'
 
 const {ipcRenderer} = require('electron')
+const {dialog} = require('electron').remote
 const Constants = require('../constants')
 const FilePackage = require('../models/file_package')
 
@@ -42,9 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitBtn = document.getElementById('submit-btn')
   submitBtn.addEventListener('click', function () {
-    const response = ipcRenderer.sendSync(Constants.IPC_CHANNEL_SUBMIT, filePackage)
-    if (response) {
-      console.log('response')
-    }
+    dialog.showSaveDialog({'title': 'package.zip'}, (filename) => {
+      const response = ipcRenderer.sendSync(Constants.IPC_CHANNEL_SUBMIT, filename, filePackage)
+      if (response) {
+        console.log('response')
+      }
+    })
   })
 })
