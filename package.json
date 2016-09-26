@@ -4,7 +4,9 @@
     "description": "sinapay tool",
     "main": "src/main.js",
     "scripts": {
-        "start": "electron src/main.js"
+        "start": "electron src/main.js",
+        "package-macos": "electron-packager ./dist sinapay-tool --platform=darwin --arch=x64 --asar --overwrite",
+        "package-win": "electron-packager ./dist sinapay-tool --platform=win32 --arch=x64 --asar --overwrite"
     },
     "author": "Zhiya Zang",
     "license": "MIT",
@@ -21,6 +23,7 @@
         "eslint": "^3.6.0",
         "eslint-config-standard": "^6.0.1",
         "eslint-plugin-promise": "^2.0.1",
-        "eslint-plugin-standard": "^2.0.0"
+        "eslint-plugin-standard": "^2.0.0",
+        "electron-packager": "^8.0.0"
     }
 }

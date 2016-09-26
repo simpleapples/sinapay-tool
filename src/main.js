@@ -2,7 +2,7 @@
 
 const {app, ipcMain} = require('electron')
 const CollectionController = require('./controllers/collection')
-const Constants = require('./Constants')
+const Constants = require('./constants')
 const JSZip = require('jszip')
 const md5File = require('md5-file')
 const fs = require('fs')
