@@ -11,5 +11,6 @@ Constants.WINDOW_SIZE = {
 }
 
 Constants.IPC_CHANNEL_SUBMIT = 'IPC_CHANNEL_SUBMIT'
+Constants.IPC_CHANNEL_COMPLETE = 'IPC_CAHNNEL_COMPLETE'
 
 module.exports = Constants
