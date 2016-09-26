@@ -2,12 +2,12 @@
 
 class FilePackage {
   constructor () {
-    this.license = '/Users/Zzy/Desktop/test.jpg'
-    this.tax_license = '/Users/Zzy/Desktop/test.jpg'
-    this.org_license = '/Users/Zzy/Desktop/test.jpg'
-    this.bank_license = '/Users/Zzy/Desktop/test.jpg'
-    this.legal_id_front = '/Users/Zzy/Desktop/test.jpg'
-    this.legal_id_back = '/Users/Zzy/Desktop/test.jpg'
+    this.license = ''
+    this.tax_license = ''
+    this.org_license = ''
+    this.bank_license = ''
+    this.legal_id_front = ''
+    this.legal_id_back = ''
   }
 
 

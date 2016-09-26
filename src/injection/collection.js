@@ -5,7 +5,7 @@ const {dialog} = require('electron').remote
 const Constants = require('../constants')
 const FilePackage = require('../models/file_package')
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   let filePackage = new FilePackage()
   document.ondragover = (event) => {
     event.preventDefault()
@@ -43,11 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitBtn = document.getElementById('submit-btn')
   submitBtn.addEventListener('click', function () {
+    this.setAttribute('disabled', 'disabled')
+    ipcRenderer.once(Constants.IPC_CHANNEL_COMPLETE, (event, hash) => {
+      this.removeAttribute('disabled')
+      dialog.showMessageBox({'title': '压缩成功', 'type': 'info', 'message': 'MD5: ' + hash, 'buttons': []})
+    })
     dialog.showSaveDialog({'title': 'package.zip'}, (filename) => {
-      const response = ipcRenderer.sendSync(Constants.IPC_CHANNEL_SUBMIT, filename, filePackage)
-      if (response) {
-        console.log('response')
-      }
+      ipcRenderer.send(Constants.IPC_CHANNEL_SUBMIT, filename, filePackage)
     })
   })
 })

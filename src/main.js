@@ -32,8 +32,8 @@ class SinapayTool {
 
   initIPC () {
     ipcMain.on(Constants.IPC_CHANNEL_SUBMIT, (event, filename, filePackage) => {
-      this.handleSubmitEvent(filename, filePackage, (md5Result) => {
-        event.sender.send(Constants.IPC_CHANNEL_COMPLETE, md5Result)
+      this.handleSubmitEvent(filename, filePackage, (hash) => {
+        event.sender.send(Constants.IPC_CHANNEL_COMPLETE, hash)
       })
     })
   }
@@ -51,7 +51,6 @@ class SinapayTool {
         if (!err) {
           const hash = md5File.sync(filename)
           callback(hash)
-          console.log('md5: ', hash)
         }
       })
     })
