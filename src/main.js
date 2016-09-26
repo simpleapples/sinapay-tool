@@ -3,7 +3,7 @@
 const {app, ipcMain} = require('electron')
 const CollectionController = require('./controllers/collection')
 const Constants = require('./Constants')
-const AdmZip = require('adm-zip')
+const JSZip = require('jszip')
 const fs = require('fs')
 const os = require('os')
 
@@ -38,31 +38,21 @@ class SinapayTool {
   }
 
   handleSubmitEvent (filename, filePackage) {
-    let tempFiles = []
-    tempFiles.push(this.copyFileToTempFolder(filePackage.license, 'yyzz'))
-    tempFiles.push(this.copyFileToTempFolder(filePackage.tax_license, 'swdjz'))
-    tempFiles.push(this.copyFileToTempFolder(filePackage.org_license, 'zzjgz'))
-    tempFiles.push(this.copyFileToTempFolder(filePackage.bank_license, 'jsxkz'))
-    tempFiles.push(this.copyFileToTempFolder(filePackage.legal_id_front, 'frzjz'))
-    tempFiles.push(this.copyFileToTempFolder(filePackage.legal_id_back, 'frzjf'))
-
-    let zip = new AdmZip()
-    for (const tempFile of tempFiles) {
-      zip.addLocalFile(tempFile)
-    }
-    zip.writeZip(filename)
+    let zip = new JSZip()
+    zip.file('yyzz' + this.getFileExtension(filePackage.license), fs.readFileSync(filePackage.license))
+    zip.file('swdjz' + this.getFileExtension(filePackage.tax_license), fs.readFileSync(filePackage.tax_license))
+    zip.file('zzjgz' + this.getFileExtension(filePackage.org_license), fs.readFileSync(filePackage.org_license))
+    zip.file('jsxkz' + this.getFileExtension(filePackage.bank_license), fs.readFileSync(filePackage.bank_license))
+    zip.file('frzjz' + this.getFileExtension(filePackage.legal_id_front), fs.readFileSync(filePackage.legal_id_front))
+    zip.file('frzjf' + this.getFileExtension(filePackage.legal_id_back), fs.readFileSync(filePackage.legal_id_back))
+    zip.generateNodeStream({type: 'nodebuffer', streamFiles: true}).pipe(fs.createWriteStream(filename)).on('finish', function () {
+      console.log('complete')
+    })
     return true
   }
 
   getFileExtension (filename) {
     return filename.substring(filename.lastIndexOf('.'))
-  }
-
-  copyFileToTempFolder (source, type) {
-    const filePath = os.tmpdir() + '/' + type + this.getFileExtension(source)
-    const fileContent = fs.readFileSync(source)
-    fs.writeFileSync(filePath, fileContent)
-    return filePath
   }
 }
 
