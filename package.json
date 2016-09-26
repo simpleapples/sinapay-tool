@@ -5,8 +5,8 @@
     "main": "src/main.js",
     "scripts": {
         "start": "electron src/main.js",
-        "package-macos": "electron-packager ./dist sinapay-tool --platform=darwin --arch=x64 --asar --overwrite",
-        "package-win": "electron-packager ./dist sinapay-tool --platform=win32 --arch=x64 --asar --overwrite"
+        "package-macos": "electron-packager . sinapay-tool --out=./dist --platform=darwin --arch=x64 --asar --overwrite",
+        "package-win": "electron-packager . sinapay-tool --out=./dist --platform=win32 --arch=x64 --asar --overwrite"
     },
     "author": "Zhiya Zang",
     "license": "MIT",
