@@ -16,7 +16,7 @@ class CollectionController {
       width: Constants.WINDOW_SIZE.width,
       height: Constants.WINDOW_SIZE.height,
       resizable: false,
-      center: true,
+      center: false,
       show: false,
       frame: true,
       autoHideMenuBar: true,
