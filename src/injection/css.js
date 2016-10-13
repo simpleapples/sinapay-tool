@@ -28,7 +28,7 @@ CSSInjector.commonCSS = `
     min-height: 1px;
     padding: auto 15px;
   }
-  .drop-area {
+  .upload-area {
     border: 3px dashed #d3d3d3;
     margin: 10px;
     padding: 64px 10px;
