@@ -6,7 +6,7 @@ const Constants = require('./constants')
 const FilePackage = require('./models/file_package')
 const JSZip = require('jszip')
 const md5File = require('md5-file')
-const uuid = require('node-uuid')
+const uuid = require('uuid')
 const fs = require('fs')
 
 class SinapayTool {
