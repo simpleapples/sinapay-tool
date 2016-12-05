@@ -4,7 +4,7 @@ class Constants {
 
 }
 
-Constants.DEBUG = true
+Constants.DEBUG = false
 Constants.WINDOW_SIZE = {
   width: 800,
   height: 625
