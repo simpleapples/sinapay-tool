@@ -17,6 +17,13 @@ class FilePackage {
       this[key] = value
     }
   }
+
+  isComplete () {
+    if (this.license.length && this.tax_license && this.org_license && this.bank_license && this.legal_id_front && this.legal_id_front) {
+      return true
+    }
+    return false
+  }
 }
 
 module.exports = FilePackage

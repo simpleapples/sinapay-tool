@@ -17,7 +17,8 @@
     "dependencies": {
         "electron": "^1.4.1",
         "jszip": "^3.1.2",
-        "md5-file": "^3.1.1"
+        "md5-file": "^3.1.1",
+        "uuid": "^1.4.7"
     },
     "devDependencies": {
         "eslint": "^3.6.0",

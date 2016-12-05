@@ -34,9 +34,22 @@ CSSInjector.commonCSS = `
     padding: 64px 10px;
     text-align: center;
     vertical-align: middle;
-    font-size: 24px;
     color: #d3d3d3;
+    cursor: pointer;
+  }
+  .line-lg {
+    font-size: 24px;
     line-height: 36px;
+  }
+  .line-sm {
+    font-size: 14px;
+    line-height: 36px;
+  }
+  .area-pd-lg {
+    padding: 64px 10px;
+  }
+  .area-pd-sm {
+    padding: 46px 10px;
   }
   .btn {
     display: inline-block;
@@ -50,6 +63,7 @@ CSSInjector.commonCSS = `
     background-color: #5bc0de;
     margin-top: 10px;
     line-height: 50px;
+    cursor: pointer;
   }
 `
 
