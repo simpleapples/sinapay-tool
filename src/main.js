@@ -26,7 +26,7 @@ class SinapayTool {
       this.collectionController.showView()
       this.filePackage = new FilePackage()
     })
-    app.on('close-main-window', () => {
+    app.on('window-all-closed', () => {
       app.quit()
     })
   }
